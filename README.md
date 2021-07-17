@@ -1,5 +1,6 @@
 # DungeonX
 An Advanced Block Regen Plugin Only For Pocketmine || Fully Customisable
+[![](https://poggit.pmmp.io/shield.state/DungeonX)](https://poggit.pmmp.io/p/DungeonX)
 
 # What This Plugin Do?
 - [✓] Regen Block Which Break By A Player
