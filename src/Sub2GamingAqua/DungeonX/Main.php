@@ -190,7 +190,7 @@ class Main extends PluginBase implements Listener{
                 $event->setXpDropAmount(0);
                 $block->getLevelNonNull()->setBlock($block->asVector3(), Block::get(Block::AIR));
                 $this->getScheduler()->scheduleDelayedTask(new DelayTask($this, $block), 20 * $this->config->get("delay"));
-            } elseif($block->getId() === Block::SUGARCANE && $this->config->get("sugarcane") === true){
+	    } elseif(in_array($block->getId(), [338, 0]) && $this->config->get("sugarcane") === true){
                 foreach ($event->getDrops() as $drop) {
                     $event->getPlayer()->getInventory()->addItem($drop);
 		}
