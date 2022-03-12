@@ -93,7 +93,7 @@ class Main extends PluginBase implements Listener{
 				$player->addXp($event->getXpDropAmount());
 				$block->getLevelNonNull()->setBlock($block->asVector3(), Block::get(0));
 				$this->getScheduler()->scheduleDelayedTask(new DelayTask($this, $block), 20 * $this->config->get("delay"));
-			} elseif(in_array($block->getId(), [17, 0]) && $this->config->get("spruce_wood") === true){
+			} elseif(in_array($block->getId(), [17, 1]) && $this->config->get("spruce_wood") === true){
 				foreach($event->getDrops() as $drop){
 					$event->getPlayer()->getInventory()->addItem($drop);
 				}
@@ -103,7 +103,7 @@ class Main extends PluginBase implements Listener{
 				$player->addXp($event->getXpDropAmount());
 				$block->getLevelNonNull()->setBlock($block->asVector3(), Block::get(0));
 				$this->getScheduler()->scheduleDelayedTask(new DelayTask($this, $block), 20 * $this->config->get("delay"));
-			} elseif(in_array($block->getId(), [17, 0]) && $this->config->get("birch_wood") === true){
+			} elseif(in_array($block->getId(), [17, 2]) && $this->config->get("birch_wood") === true){
 				foreach($event->getDrops() as $drop){
 					$event->getPlayer()->getInventory()->addItem($drop);
 				}
@@ -113,7 +113,7 @@ class Main extends PluginBase implements Listener{
 				$player->addXp($event->getXpDropAmount());
 				$block->getLevelNonNull()->setBlock($block->asVector3(), Block::get(0));
 				$this->getScheduler()->scheduleDelayedTask(new DelayTask($this, $block), 20 * $this->config->get("delay"));
-			} elseif(in_array($block->getId(), [162, 0]) && $this->config->get("dark_oak_wood") === true){
+			} elseif(in_array($block->getId(), [162, 1]) && $this->config->get("dark_oak_wood") === true){
 				foreach($event->getDrops() as $drop){
 					$event->getPlayer()->getInventory()->addItem($drop);
 				}
@@ -133,7 +133,7 @@ class Main extends PluginBase implements Listener{
 				$event->setXpDropAmount(0);
 				$block->getLevelNonNull()->setBlock($block->asVector3(), Block::get(0));
 				$this->getScheduler()->scheduleDelayedTask(new DelayTask($this, $block), 20 * $this->config->get("delay"));
-			} elseif(in_array($block->getId(), [17, 0]) && $this->config->get("jungle_wood") === true){
+			} elseif(in_array($block->getId(), [17, 3]) && $this->config->get("jungle_wood") === true){
 				foreach($event->getDrops() as $drop){
 					$event->getPlayer()->getInventory()->addItem($drop);
 				}
@@ -173,6 +173,46 @@ class Main extends PluginBase implements Listener{
                 $event->setXpDropAmount(0);
                 $block->getLevelNonNull()->setBlock($block->asVector3(), Block::get(Block::AIR));
                 $this->getScheduler()->scheduleDelayedTask(new DelayTask($this, $block), 20 * $this->config->get("delay"));
+	        }
+		$event->setDrops([]);
+                $player->addXp($event->getXpDropAmount());
+                $event->setCancelled();
+                $event->setXpDropAmount(0);
+                $block->getLevelNonNull()->setBlock($block->asVector3(), Block::get(Block::AIR));
+                $this->getScheduler()->scheduleDelayedTask(new DelayTask($this, $block), 20 * $this->config->get("delay"));
+            } elseif($block->getId() === Block::MELON_BLOCK && $this->config->get("melon_block") === true){
+                foreach ($event->getDrops() as $drop) {
+                    $event->getPlayer()->getInventory()->addItem($drop);
+		}
+		$event->setDrops([]);
+                $player->addXp($event->getXpDropAmount());
+                $event->setCancelled();
+                $event->setXpDropAmount(0);
+                $block->getLevelNonNull()->setBlock($block->asVector3(), Block::get(Block::AIR));
+                $this->getScheduler()->scheduleDelayedTask(new DelayTask($this, $block), 20 * $this->config->get("delay"));
+            } elseif($block->getId() === Block::SUGARCANE && $this->config->get("sugarcane") === true){
+                foreach ($event->getDrops() as $drop) {
+                    $event->getPlayer()->getInventory()->addItem($drop);
+		}
+		$event->setDrops([]);
+                $player->addXp($event->getXpDropAmount());
+                $event->setCancelled();
+                $event->setXpDropAmount(0);
+                $block->getLevelNonNull()->setBlock($block->asVector3(), Block::get(Block::AIR));
+                $this->getScheduler()->scheduleDelayedTask(new DelayTask($this, $block), 20 * $this->config->get("delay"));
+            } elseif($block->getId() === Block::CACTUS && $this->config->get("cati") === true){
+                foreach ($event->getDrops() as $drop) {
+                    $event->getPlayer()->getInventory()->addItem($drop);
+		}
+		$event->setDrops([]);
+                $player->addXp($event->getXpDropAmount());
+                $event->setCancelled();
+                $event->setXpDropAmount(0);
+                $block->getLevelNonNull()->setBlock($block->asVector3(), Block::get(Block::AIR));
+                $this->getScheduler()->scheduleDelayedTask(new DelayTask($this, $block), 20 * $this->config->get("delay"));
+            } elseif($block->getId() === Block::PUMKIN && $this->config->get("pumkin") === true){
+                foreach ($event->getDrops() as $drop) {
+                    $event->getPlayer()->getInventory()->addItem($drop);
             }
         }
     }
